@@ -1,16 +1,3 @@
-<p>
-  <%= @user.name %>
-  <%=  @user.id %>
-  <%=  @user %>
-</p>
-<p>
-  <% @allposts.each do |post| %>
-  <p>
-    <%= post.content %>
-  </p>
-  <% end %>
-</p>
-
 <%= form_for([@user, @post]) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -23,10 +10,20 @@
     </div>
     <% end %>
     <div class="field">
-      <%= f.label :content %><br>
       <%= f.text_area :content %>
     </div>
     <div class="actions">
       <%= f.submit %>
     </div>
+<% end %>
+
+<p>
+  <%= @user.name %>
+</p>
+<p>
+  <% @allposts.each do |post| %>
+  <p>
+    <%= post.content %>
+  </p>
   <% end %>
+</p>
