@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  get 'posts/index'
+  get 'feed' => 'users#feed'
+  # post 'user/posts' => 'posts#create'
 
-  get 'posts/new'
-
-  get 'posts/create'
+  resources :users, only: [:feed] do
+  resources :posts, only: [:create]
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
