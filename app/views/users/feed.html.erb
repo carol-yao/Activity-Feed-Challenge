@@ -1,3 +1,9 @@
+<div class="profile_information">
+  <h3 class="name"><%= @user.name %></h3>
+  <p>
+
+  </p>
+</div>
 <%= form_for([@user, @post]) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -18,11 +24,14 @@
 <% end %>
 
 <p>
-  <%= @user.name %>
-</p>
-<p>
   <% @allposts.each do |post| %>
   <p>
+    <% if post.instance_of? Post %>
+      <%= post.user.name %>
+    <% else %>
+      <%= post.friend.name %>
+    <% end %>
+    <%= post.hours_ago %>
     <%= post.content %>
   </p>
   <% end %>
