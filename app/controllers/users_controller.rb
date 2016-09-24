@@ -6,5 +6,6 @@ class UsersController < ApplicationController
     @friendposts = User.first.friend_posts.order('friend_posts.created_at DESC')
     @allposts = [@ownposts, @friendposts].flatten #group all posts together
     @friends = @user.friends
+    @first_9_friends = @friends.take(9)
   end
 end

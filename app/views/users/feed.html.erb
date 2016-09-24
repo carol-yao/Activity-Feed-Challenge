@@ -10,10 +10,8 @@
   <p>
     Friends (<%= @friends.count %>)
   </p>
-  <% @friends.each do |friend| %>
-    <p>
-      <%= friend.name %>
-    </p>
+  <% @first_9_friends.each do |friend| %>
+      <img src="  <%= friend.picture %>" alt="<%= friend.name %>" height="50" width="50" />
   <% end %>
 </div>
 <%= form_for([@user, @post]) do |f| %>
@@ -39,12 +37,21 @@
   <% @allposts.each do |post| %>
   <p>
     <% if post.instance_of? Post %>
+    <p>
       <%= post.user.name %>
+    </p>
     <% else %>
+    <p>
       <%= post.friend.name %>
+    </p>
     <% end %>
-    <%= post.hours_ago %>
-    <%= post.content %>
+    <p>
+      <%= post.hours_ago %><br>
+      <%= post.content %>
+    </p>
+    <% if post.picture != nil %>
+      <img src="  <%= post.picture %>" alt="picture" width="493" />
+    <% end %>
   </p>
   <% end %>
 </p>
