@@ -1,8 +1,20 @@
 <div class="profile_information">
+<img src="<%=@user.picture%>" alt="<%= @user.name %>" height="220" width="220" />
   <h3 class="name"><%= @user.name %></h3>
   <p>
-
+    <%= @user.description %><br>
+    <%= @user.hometown %>
   </p>
+</div>
+<div class="friends">
+  <p>
+    Friends (<%= @friends.count %>)
+  </p>
+  <% @friends.each do |friend| %>
+    <p>
+      <%= friend.name %>
+    </p>
+  <% end %>
 </div>
 <%= form_for([@user, @post]) do |f| %>
   <% if @post.errors.any? %>
