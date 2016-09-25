@@ -1,57 +1,122 @@
-<div class="profile_information">
-<img src="<%=@user.picture%>" alt="<%= @user.name %>" height="220" width="220" />
-  <h3 class="name"><%= @user.name %></h3>
-  <p>
-    <%= @user.description %><br>
-    <%= @user.hometown %>
-  </p>
-</div>
-<div class="friends">
-  <p>
-    Friends (<%= @friends.count %>)
-  </p>
-  <% @first_9_friends.each do |friend| %>
-      <img src="  <%= friend.picture %>" alt="<%= friend.name %>" height="50" width="50" />
-  <% end %>
-</div>
-<%= form_for([@user, @post]) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved: </h2>
-      <ul>
-        <% @post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Feedly</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Activity Feed</a></li>
+        <li><a href="#"><%= @user.name %></a></li>
       </ul>
     </div>
-    <% end %>
-    <div class="field">
-      <%= f.text_area :content %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-<% end %>
+  </div>
+</nav>
 
-<p>
-  <% @allposts.each do |post| %>
-  <p>
-    <% if post.instance_of? Post %>
-    <p>
-      <%= post.user.name %>
-    </p>
-    <% else %>
-    <p>
-      <%= post.friend.name %>
-    </p>
-    <% end %>
-    <p>
-      <%= post.hours_ago %><br>
-      <%= post.content %>
-    </p>
-    <% if post.picture != nil %>
-      <img src="  <%= post.picture %>" alt="picture" width="493" />
-    <% end %>
-  </p>
-  <% end %>
-</p>
+<div class="row center-block">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-3 profile-container">
+    <img class="profile-pic" src="<%=@user.picture%>" alt="<%= @user.name %>" />
+      <div class="user-description white-and-border">
+        <p>
+          <h3 class="name"><%= @user.name %></h3>
+          <%= @user.description %><br>
+          <%= @user.hometown %>
+        </p>
+      </div>
+    <div class="friends white-and-border">
+      <p class="friends-heading">
+        Friends (<%= @friends.count %>)
+      </p>
+      <div class="friend-divider divider"></div>
+      <% @first_9_friends.each do |friend| %>
+          <img class="friend-photos" src="  <%= friend.picture %>" alt="<%= friend.name %>" height="50" width="50" />
+      <% end %>
+      <div class="friend-divider divider"></div>
+      <div class="expand-friends text-center">
+        <a href="/feed"><i id="expand-icon" class="material-icons md-18 expand-icon">expand_more</i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-7 post-container">
+    <div class="form-area">
+      <%= form_for([@user, @post]) do |f| %>
+        <% if @post.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved: </h2>
+            <ul>
+              <% @post.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>
+          <div class="field">
+            <%= f.text_area :content,placeholder: "Write a post...", class:'post-form-area' %>
+          </div>
+          <div class="actions">
+            <%= f.submit 'Post' %>
+          </div>
+      <% end %>
+      <i class="material-icons md-18">attach_file</i>
+      <i class="material-icons md-18">add_a_photo</i>
+    </div>
+
+      <% @allposts.each do |post| %>
+      <div class="post white-and-border">
+        <div class="post-top-container">
+            <% if post.instance_of? Post %>
+              <img class="post-user-photo" src="<%= post.user.picture %>" alt="<%= post.user.name %>" />
+            <% else %>
+              <img class="post-user-photo" src="<%= post.friend.picture %>" alt="<%= post.friend.name %>" />
+            <% end %>
+          <div class="post-user-info">
+            <% if post.instance_of? Post %>
+
+            <p class="post-name">
+              <%= post.user.name %>
+            </p>
+            <% else %>
+            <p class="post-name">
+              <%= post.friend.name %>
+            </p>
+            <% end %>
+            <p class="hours-ago">
+              <%= post.hours_ago %>
+            </p>
+          </div>
+        </div>
+        <p class="post-content">
+          <%= post.content %>
+        </p>
+        <% if post.instance_of? FriendPost %>
+          <% if post.picture != nil %>
+            <img src="<%= post.picture %>" alt="picture" width="493" class="post-photo" />
+          <% end %>
+        <% end %>
+        
+        <div class="divider post-divider"></div>
+          <div class="respond-bar">
+            <div id="heart-container">
+              <i class="material-icons md-18" id="heart-icon">favorite</i>
+              <p class="respond-icon-text">Like</p>
+            </div>
+            <div id="message-container">
+              <i class="material-icons md-18" id="message-icon">chat_bubble</i>
+              <p class="respond-icon-text">Comment</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+  <div class="col-xs-1"></div>
+</div>

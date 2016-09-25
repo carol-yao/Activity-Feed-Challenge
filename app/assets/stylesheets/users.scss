@@ -1,3 +1,108 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'https://fonts.googleapis.com/css?family=Lato';
+@import 'https://fonts.googleapis.com/css?family=Pacifico';
+
+$offwhite: #F0F1F3;
+$translucentwhite: rgba(256,256,256,0.8);
+$border: rgba(151,151,151,0.5);
+$accent: #E45085;
+$darkaccent: #CC4778;
+$primarycolor: #2DAB9A;
+
+* {
+  font-family: 'Avenir Next','Lato', sans-serif;
+}
+body {
+  background-color: $offwhite;
+}
+
+.center-block {
+  margin: 0 auto;
+  width: 970px;
+  background-color: $offwhite;
+}
+
+.container-fluid {
+  height: 56px;
+  background-color: $primarycolor;
+}
+
+.navbar {
+  margin: 0;
+}
+
+.navbar-default .navbar-brand {
+  font-family: 'Pacifico', sans-serif;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
+  color: $translucentwhite;
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-brand:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.profile-container {
+
+}
+
+.profile-pic {
+  max-height: 220px;
+  max-width: 220px;
+  margin-top: 36px;
+  border-radius: 2px;
+}
+
+.white-and-border {
+  background-color: $translucentwhite;
+  border-radius: 2px;
+  border: 1px solid $border;
+}
+
+.user-description {
+  margin-top: 16px;
+  padding: 16px;
+  line-height: 24px;
+  width: 220px;
+}
+
+.friends {
+  width: 220px;
+  margin-top: 16px;
+}
+.friends-heading {
+  margin: 16px 0 0 16px;
+  font-size: 14px;
+}
+
+.divider {
+  background-color: $border;
+  height: 1px;
+}
+
+.friend-divider {
+  width: 88%;
+  margin: 4px auto;
+}
+
+.friend-photos {
+  margin: 8px 16px;
+  margin-right: 0px;
+  border-radius: 100%;
+}
+
+#expand-icon{
+  color: $accent;
+}
+#expand-icon:hover{
+  color: $darkaccent;
+}
+.expand-friends {
+  margin: 2px 0 4px 0;
+}

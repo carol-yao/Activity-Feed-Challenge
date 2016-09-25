@@ -1,3 +1,130 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$accent: #E45085;
+$border: rgba(151,151,151,0.5);
+$icon_grey: #9B9B9B;
+$dark_grey: #4A4A4A;
+$offwhite: #F0F1F3;
+$darkaccent: #CC4778;
+
+.post-container {
+  margin-top: 36px;
+}
+
+.form-area {
+  height: 140px;
+  padding: 24px;
+  background-color: white;
+  border-radius: 2px;
+  border: 1px solid $border;
+}
+.post-form-area {
+  width: 100%;
+  border: none;
+  height: 64px;
+  overflow: hidden;
+}
+
+input[type=submit] {
+  background-color: $accent;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  padding: 4px;
+  width: 80px;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: $darkaccent;
+}
+
+i {
+  color: $icon_grey;
+  margin-right: 16px;
+}
+
+i:hover {
+  color: $dark_grey;
+}
+
+.post {
+  padding: 24px;
+  margin-top: 16px;
+}
+.post-name {
+  font-size: 16px;
+  color: $dark_grey;
+  margin: 0;
+}
+
+.hours-ago {
+  font-size: 14px;
+  color: $dark_grey;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.post-content {
+  font-size: 14px;
+  color: $dark_grey;
+  opacity: 0.8;
+  margin: 16px 0;
+}
+
+.post-user-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.post-user-info {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.post-photo {
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+
+.post-divider {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#heart-icon, #message-icon {
+  float: left;
+  margin-right: 8px;
+}
+
+.respond-icon-text {
+  float: left;
+  line-height: 28px;
+  margin: 0;
+  margin-right: 16px;
+  color: $icon_grey;
+}
+
+.respond-icon-text:hover {
+  color: $dark_grey;
+}
+
+.respond-bar {
+  margin-top: 8px;
+  line-height: 28px;
+  overflow: hidden;
+}
+
+#heart-container, #message-container {
+  overflow: hidden;
+  display: inline-block;
+  float: left;
+}
+#heart-icon:hover, #heart-icon:active, #heart-icon:visited {
+  color: $accent;
+  opacity: 1;
+}
