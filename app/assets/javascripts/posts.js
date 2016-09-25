@@ -1,6 +1,6 @@
 $(function(){
-  $('#heart-icon').on('click',function(e) {
+  $('i#heart-icon').on('click',function(e) {
     e.preventDefault();
-    $('#heart-icon').css('color', '#E45085');
-  })
+    $(this).css('color', '#E45085');
+  });
 });
