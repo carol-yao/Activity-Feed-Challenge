@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'users#feed'
   get 'feed' => 'users#feed'
   # post 'user/posts' => 'posts#create'
 
