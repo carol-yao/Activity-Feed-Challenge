@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(name: 'Jillian Black', picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRccgoY6cSs35bfev4esQeprC8Z-PsB5npZsShK3HtZ9rxr4QwlSw", description: "23 | University of Waterloo", hometown: "Toronto, CA");
+User.create(name: 'Carol Yao', picture: "https://pbs.twimg.com/profile_images/751165247902318593/m-JNmdS4.jpg", description: "23 | University of Waterloo", hometown: "Toronto, CA");
 
 Friend.create(name: 'Chloe Zhang', picture: "https://dtpmhvbsmffsz.cloudfront.net/posts/2013/09/09/522e98d8911d8705fe009a30/m_522e98e3bdf51c33f4099bd8.jpg", user_id: 1);
 Friend.create(name: 'Sarah Yang', picture: "http://s2.favim.com/orig/141102/albanian-glasses-hot-girl-lips-Favim.com-2205741.png", user_id: 1);

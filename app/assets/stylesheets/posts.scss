@@ -2,23 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$accent: #E45085;
-$border: rgba(151,151,151,0.5);
-$icon_grey: #9B9B9B;
-$dark_grey: #4A4A4A;
-$offwhite: #F0F1F3;
-$darkaccent: #CC4778;
+$translucentwhite: rgba(256,256,256,0.8);
+$border: 1px solid rgba(155,154,155,0.30);
+$accent: #007AFF;
+$like-pink: #FD7799;
+$share-blue: #00A9F6;
+$comment-green: #8BC24A;
+$shadow: 0px 2px 4px 0px rgba(0,0,0,0.25);
+$darkaccent: #003C7D;
+$postgrey: #4A4A4A;
 
 .post-container {
-  margin-top: 36px;
+  margin-top: 24px;
 }
 
 .form-area {
   height: 140px;
-  padding: 24px;
+  padding: 24px 32px;
   background-color: white;
-  border-radius: 2px;
-  border: 1px solid $border;
+  border-radius: 20px;
+  border: $border;
+  margin-bottom: 24px;
 }
 .post-form-area {
   width: 100%;
@@ -31,7 +35,7 @@ input[type=submit] {
   background-color: $accent;
   color: white;
   border: none;
-  border-radius: 2px;
+  border-radius: 20px;
   padding: 4px;
   width: 80px;
   float: right;
@@ -42,42 +46,54 @@ input[type=submit]:hover {
 }
 
 i {
-  color: $icon_grey;
+  color: $accent;
   margin-right: 16px;
 }
 
 i:hover {
-  color: $dark_grey;
+  color: $darkaccent;
+}
+
+.less-opacity {
+  opacity: 0.7;
 }
 
 .post {
   padding: 24px;
-  margin-top: 16px;
+  margin: 8px 0;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: $shadow;
+  opacity: 0.9;
+}
+
+.post-top-container {
+  overflow: hidden;
 }
 .post-name {
   font-size: 16px;
-  color: $dark_grey;
+  color: $accent;
   margin: 0;
+  display: inline-block;
 }
 
 .hours-ago {
   font-size: 14px;
-  color: $dark_grey;
+  color: $postgrey;
   opacity: 0.8;
-  margin: 0;
 }
 
 .post-content {
   font-size: 14px;
-  color: $dark_grey;
+  color: $postgrey;
   opacity: 0.8;
-  margin: 16px 0;
+  margin: 24px 0;
 }
 
 .post-user-photo {
-  width: 60px;
-  height: 60px;
-  border-radius: 2px;
+  width: 32px;
+  height: 32px;
+  border-radius: 100px;
   display: inline-block;
 }
 
@@ -91,26 +107,22 @@ i:hover {
   margin-bottom: 16px;
 }
 
-.post-divider {
-  width: 100%;
-  margin: 0 auto;
-}
-
-#heart-icon, #message-icon {
+.action-icon {
   float: left;
   margin-right: 8px;
+  display: inline-block;
 }
 
 .respond-icon-text {
-  float: left;
   line-height: 28px;
   margin: 0;
   margin-right: 16px;
-  color: $icon_grey;
+  color: $accent;
+  display: inline-block;
 }
 
 .respond-icon-text:hover {
-  color: $dark_grey;
+  color: $darkaccent;
 }
 
 .respond-bar {
@@ -119,12 +131,22 @@ i:hover {
   overflow: hidden;
 }
 
-#heart-container, #message-container {
-  overflow: hidden;
+.action-container {
   display: inline-block;
-  float: left;
 }
-#heart-icon:hover, #heart-icon:active, #heart-icon:visited {
-  color: $accent;
-  opacity: 1;
+// #heart-container, #message-container, #share-container {
+//   overflow: hidden;
+//   display: inline-block;
+//   float: left;
+// }
+
+.like {
+  color: $like-pink;
+}
+
+.comment {
+  color: $comment-green;
+}
+.share {
+  color: $share-blue;
 }
